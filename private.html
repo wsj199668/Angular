@@ -1,0 +1,58 @@
+<div id="private">
+    <div ng-include="  'header.html'  "></div>
+    <div class="container-fluid">
+        <div class="row list">
+    <div class="form-list col-xs-12">
+        <h5>姓名:</h5>
+        <input type="text" class="form-control" ng-model="name1">
+        <h5>姓别:</h5>
+        <input type="radio" name="gender" value="男" ng-model="gender"><span>女</span>
+        <input type="radio" name="gender" value="女"><span>男</span>
+        <h5>联系方式:</h5>
+        <input type="text" class="form-control" ng-model="contact">
+        <h5>详细地址:</h5>
+        <textarea name="" id="" cols="30" rows="10" class="form-control" ng-model="address"></textarea>
+    </div>
+            <div class="col-xs-12 sure">
+                <button type="button" class="btn  btn-success"  data-toggle="modal" data-target="#myModal">确定下单</button>
+            </div>
+    </div>
+        <div class="row success hidden">
+            <div class="col-xs-12">
+            <div class="alert alert-success" role="alert">
+                <h5>下单成功!</h5>
+                <p>订单编号：<i>5</i><br>姓名:{{name1}}<br>联系方式:{{contact}}<br>详细地址:{{address}}<br>
+                <b>{{thisname}}</b><br>
+                <b>数量：</b>{{thisnumber}}<br>
+                <b>共计：</b>{{thisnumber*thisprice}}
+                </p>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">请确认您的信息</h4>
+                </div>
+                <div class="modal-body">
+                    <p class="alert alert-success"><b>姓名：</b>{{name1}}<br>
+                        <b>联系方式：</b>{{contact}}<br>
+                        <b>详细地址：</b>{{address}}<br>
+                    <hr>
+                        <b>{{thisname}}</b><br>
+                        <b>数量：</b>{{thisnumber}}<br>
+                        <b>共计：</b>{{thisnumber*thisprice}}
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary"  onclick="success()">提交</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <div ng-include="  'footer.html'  "></div>
+</div>

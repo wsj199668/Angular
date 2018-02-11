@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <link href="css/all.css" rel="stylesheet">
+    
+</head>
+<body ng-app="bookfood">
+<div ng-view></div>
+
+<script src="js/jquery-1.11.3.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/angular.js"></script>
+<script src="js/angular-route.js"></script>
+<script>
+    /*angular-js*/
+    angular.module('bookfood',['ng','ngRoute']).config(
+            function($routeProvider){
+                $routeProvider
+                        .when('/main',{templateUrl:'main.html'})
+                        .when('/detail',{templateUrl:'detail.html'})
+                        .when('/list',{templateUrl:'list.html'})
+                        .when('/private',{templateUrl:'private.html'})
+                        .when('/welcome',{templateUrl:'welcome.html'})
+                        .otherwise({redirectTo:'/welcome'});
+            }
+    )//路由切换页面
+            .controller('getdetail',function($http,$rootScope)
+            {
+                $http.get("js/shuju.txt")
+                        .success(function (data) {
+                            $rootScope.fooddata=data
+
+                        })
+
+            })//获取数据并操作
+    .controller('getmoredata',function($scope,$rootScope,$http){
+        var m=0;
+        $http.get("js/shuju2.txt")
+                .success(function(data2){$rootScope.dataorigin=data2})
+        $scope.mored=function(){
+            m+=4
+            if(m>16){$('.loadmore button').text('没有了').attr('class','disabled btn  btn-danger')}
+            else{
+                console.log(m);
+                var data1=$rootScope.dataorigin.slice(m-4,m);
+                console.log(data1);
+                $rootScope.fooddata=$rootScope.fooddata.concat(data1);
+                console.log($rootScope.fooddata)
+            }
+        }
+    })//点击动态加载；
+            .controller('getintroduce',function($http,$rootScope,$location)
+            {$rootScope.n=1;
+                $rootScope.thisintroduce=function(){
+                    $rootScope.img=this.x.foodimg;
+                    $rootScope.text=this.x.foodtext;
+                    $rootScope.introduce=this.x.foodintroduce;
+                    $rootScope.price=this.x.foodprice;
+                    $rootScope.name=this.x.foodname;
+                    $location.path('/detail')
+
+                }
+                $rootScope.addthis=function(){
+                    $rootScope.thisprice=Number(this.x.foodprice.slice(1));
+                    $rootScope.thisnumber=this.n
+                    $rootScope.thisname=this.x.foodname
+                }
+                $rootScope.addthisnow=function(){
+                    $rootScope.thisprice=Number(this.price.slice(1));
+                    $rootScope.thisnumber=1
+                    $rootScope.thisname=this.name
+                    $location.path('/main')
+                }
+            })//获取菜品详情数据
+   function success(){
+        $("#private .list").remove();
+        $("#private .sure").remove();
+        $("#private #myModal").remove()
+        $("#private .success").toggleClass('hidden');
+        $(".modal-backdrop").remove();
+    }
+    $(window).scroll(function(){
+        var s=$(window).scrollTop();
+        var t=$(document).height();
+        if(s>t-500){
+            console.log("chenggong")
+            $('.information').css({'position':'relative'})
+        }
+        else{$('.information').css('position','fixed')}
+    })
+</script>
+</body>
+</html>

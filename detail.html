@@ -1,0 +1,32 @@
+<div id="detial">
+    <div ng-include="  'header.html'  "></div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box "  ng-controller="getintroduce">
+                <h5 class="bg-warning title">
+                <ol class="breadcrumb">
+                <li><a href="#/main">首页</a></li>
+                <li><a href="#/detail">详情页</a></li>
+            </ol>
+                </h5>
+                <div class="introduce bg-warning">
+                    <section>
+                <h5>{{name}}</h5>
+                <img class="img-responsive" ng-src="{{img}}" alt="图片加载中···">
+                    </section>
+                        <p >{{text}}
+                    <br><b>详细介绍：</b>{{introduce}}
+                </p>
+                    <div class="price">{{price}}</div>
+                </div>
+                <div class="but bg-warning">
+                    <button type="button" class="btn btn-success" ng-click="addthisnow()">我要订餐</button>
+                    <button type="button" class="btn btn-warning" onclick="window.location.href='#/main'" >我再看看</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <div ng-include="  'footer.html'  "></div>
+</div>

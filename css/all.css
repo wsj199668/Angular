@@ -1,0 +1,156 @@
+ul,
+li,
+img,
+h1.h2,
+h3,
+h4,
+h5,
+body {
+  margin: 0;
+  padding: 0;
+}
+#header .navbar {
+  padding-left: 0;
+  padding-right: 0;
+}
+#footer ul {
+  display: flex;
+  justify-content: space-between;
+}
+#footer ul li {
+  text-align: center;
+}
+#welcome {
+  padding-top: 30%;
+}
+#index .search {
+  margin: 0 3%;
+}
+#index .foodlist {
+  margin-top: 15px;
+  border: 1px solid silver;
+  border-radius: 5px;
+}
+#index .foodlist .detail {
+  margin: 0;
+  padding: 10px 0px;
+  border-bottom: 1px solid silver;
+}
+#index .foodlist .detail .number {
+  margin: 10px 5px;
+  height: 20px;
+}
+#index .foodlist .detail .number span {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+}
+#index .foodlist .detail .number button {
+  border-radius: 4px;
+  background: #D9534F;
+  border: none;
+  color: white;
+  text-align: center;
+  height: 20px;
+  line-height: 20px;
+  font-size: 16px;
+}
+#index .foodlist .detail p {
+  font-weight: 600;
+  line-height: 26px;
+}
+#index .loadmore button {
+  margin: 20px auto;
+  width: 100%;
+}
+#index .information {
+  padding: 15px 25px;
+  width: 100%;
+  background: rgba(220, 220, 220, 0.9);
+  position: fixed;
+  bottom: 0;
+  color: black;
+}
+#index .information span {
+  dispaly: inline-block;
+  width: 80px;
+  margin-left: 10px;
+  color: red;
+}
+#private .form-list {
+  margin-top: 2px;
+}
+#private .form-list h5,
+#private .form-list span {
+  font-weight: 600;
+  line-height: 30px;
+}
+#private .sure button {
+  margin: 20px auto;
+  width: 100%;
+}
+#private .success .alert {
+  padding: 0;
+}
+#private .success .alert h5 {
+  line-height: 50px;
+  font-weight: 500;
+  padding-left: 10px;
+}
+#private .success p {
+  padding-top: 15px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  word-spacing: 10px;
+  color: black;
+  background: white;
+}
+#detial .box {
+  border: 1px solid  #FAEBCC;
+  border-radius: 6px;
+}
+#detial .box .title .breadcrumb {
+  background: transparent;
+}
+#detial .box .introduce {
+  border: 1px solid #FAEBCC;
+  border-radius: 6px;
+  margin: 15px;
+}
+#detial .box .introduce section {
+  background: white;
+  padding: 0 3%;
+}
+#detial .box .introduce section h5 {
+  line-height: 50px;
+  font-weight: 600;
+  border-bottom: 1px solid silver;
+}
+#detial .box .introduce section img {
+  width: 100%;
+  margin: 25px 0;
+}
+#detial .box .introduce p {
+  padding: 0 3%;
+  color: #8A6D3B;
+}
+#detial .box .introduce .price {
+  border-top: 1px solid silver;
+  margin: 20px 3%;
+  color: darkred;
+  line-height: 30px;
+}
+#detial .but {
+  padding: 10px 0;
+}
+#detial .but:after {
+  content: "";
+  display: block;
+  visibility: hidden;
+  clear: both;
+}
+#detial button {
+  float: right;
+  margin-right: 15px;
+}
